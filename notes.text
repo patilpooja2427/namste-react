@@ -1,0 +1,37 @@
+1. NPM - its a package manager. it is biggest package manager.  standard repository for all the packages. All packages hosted over here.
+        when you create basic react app it has automatically has npm in it.
+2. package.json - It is configuration for NPM.It keeps track of what packages installed. I contains all the package dependencies.
+3. Bundler - Webpack, Vite, and Parcel are all module bundlers used in modern web development.
+        It packages your app so that it can shift to production.
+4. Dev-dependencies: It is required in development phase. 'npm install -D' parcel install as dev dependencies(-D).
+5. dependencies: These are the dependencies required in production also.
+6. ^ carrot and ~ tiled = 
+    eg.  "parcel": "^2.15.4" - when new version comes like 2.X.X it will automatically get updated because we have given ^. It upgrades minor versions.
+    eg.  "parcel": "~2.15.4" - when new version comes like 3.X.X it will automatically get updated because we have given ~. It upgrades major versions but it not safe.
+7. package.lock.json : contains exact versions. lets say ew version comes then our package.json file remain as it is. Lock file keeps record of exact version.
+8. Node modules: it contains all the code we fetch from npm. all the dependencies in package.json.
+9. Transitive dependencies: eg. we have installed only parcel. But inside node modules there are many files. because parcel has some dependencies and that dependencies has again dependencies. I contains all the package dependencies with exact version.
+        If we have package.json and package.lock.json we can generate the node_modules. Hence we do not push node_module on production.
+10. npx: use to execute command.
+11. Passing react in index.html using CDN is not a best practice. because we are making call to get CDN file from network is very costly operation. Rather we can install react in our package.json and we will have react in node_modules.
+
+12. Parcel: 1. Dev build
+            2. Local Server
+            3. HMR = Hot Module Replacement
+            4. Parcel uses File replacement algorithm which is written in C++ because of which page is refreshing automatically.
+            5. caching - Faster Builds
+            6. Image optimization
+            7. Minification
+            8. Bundling
+            9. Compress
+            10. Consistent Hashing
+            11. Code Splitting
+            12. Differential Bundling - to support older browsers it create different bundles.
+            13. Diagnostic
+            !4. error handling
+            15. HTTPS
+            16. Tree shaking - remove unused code from build
+            17. Differential bundling
+            18. different dev and prod build
+
+  

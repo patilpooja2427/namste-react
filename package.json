@@ -1,0 +1,32 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "This react learning app",
+  "default": "app.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patilpooja2427/namste-react.git"
+  },
+  "keywords": [],
+  "author": "pooja patil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patilpooja2427/namste-react/issues"
+  },
+  "homepage": "https://github.com/patilpooja2427/namste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
