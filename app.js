@@ -1,52 +1,117 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// React Element = It is a Object when we render on DOM it becomes html DOM element.
-
-const heading = React.createElement("h1", {id:'heading'}, "Namaste React!!");
-const jsxHeading = <h1 id="heading" className='heading'>Namaste React from JXS!!!</h1>
-
-//So above code is very difficult to write, hence react developer written JSX.
-// JSX - is  not HTML inside js. IT has HTML like syntax.
-//Transpilation is done by parcel. parcel converts the code to ES6 before it reaches to the js.
-// IT is not a parcel that actually doing transpilation.
-// Babel is doing transpilation. convert JSX to JavaScript.
-
-// In JSX we use camel case to write attribute.
-// If you want to write jsx on multiple lines then you need to wrap it inside ().
-
-
-// React components : 2 types
-// Class Based Component  - old
-// functional Component - New
-
-// React functional component = It is just a normal javascript function that returns JXS(write function name with capital letters).
-// React functional component is a function that returns react element.
-// Component composition = You are composing two components one another.
-//normal function use here
-const Title = function(){
-    return <h1 className="head">Namaste React</h1>
-};
-// Component composition
-// arrow function use here
-const offer = 'I get offer';
-const HeadingComponent = () => (
-    <div className="container">
-        <Title />
-        <Title></Title>
-        {Title()}
-        {jsxHeading}
-        <h1>Functional Component</h1> 
-        <h2>{offer}</h2>
-        <h3>{20+30}</h3>
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="logo-container">
+        <img
+          className="logo"
+          src="https://png.pngtree.com/template/20191024/ourmid/pngtree-food-delivery-logo-design-fast-delivery-service-sign-image_323015.jpg"
+        ></img>
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About us</li>
+          <li>Contact Us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
     </div>
-);
+  );
+};
 
-// if you write {} curly brackets inside functional component then you can write any javascript code inside it. 
-// you can put react elements inside react functional component, element inside element, component inside component, component inside element.
+const resObj = [
+  {
+    id: 1,
+    type: "res",
+    data: {
+      resName: "KFC",
+      cuisine: "Fast Food",
+      stars: "4.5",
+      delivery_time: "30 mins",
+      constForTwo: "440",
+    },
+  },
+  {
+    id: 2,
+    type: "res",
+    data: {
+      resName: "MAC-D",
+      cuisine: "Fast Food",
+      stars: "4.2",
+      delivery_time: "40 mins",
+      constForTwo: "600",
+    },
+  },
+  {
+    id: 3,
+    type: "res",
+    data: {
+      resName: "AFC",
+      cuisine: "Fast Food",
+      stars: "4.8",
+      delivery_time: "30 mins",
+      constForTwo: "440",
+    },
+  },
+  {
+    id: 4,
+    type: "res",
+    data: {
+      resName: "KFC",
+      cuisine: "Fast Food",
+      stars: "4.5",
+      delivery_time: "30 mins",
+      constForTwo: "440",
+    },
+  },
+];
+const RestaurantCard = (props) => {
+  const { resData } = props;
+  const { resName, cuisine, stars, delivery_time, constForTwo } = resData.data;
+  return (
+    <div className="res-card" key={resName}>
+      <div className="res-logo-container">
+        <img
+          className="res-logo"
+          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/gp1ityra6utvzqn6ghnv"
+        ></img>
+      </div>
+      <h3>{resName}</h3>
+      <h4>{cuisine}</h4>
+      <h4>{stars} Stars</h4>
+      <h3>Time: {delivery_time}</h3>
+      <h3>Cost: {constForTwo / 2} Stars</h3>
+    </div>
+  );
+};
 
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search">search</div>
+      <div className="res-container">
+        {resObj.map((data) => {
+          return <RestaurantCard resData={data} key={data.id} />;
+        })}
+        {/* <RestaurantCard resData={resObj[0]} />
+        <RestaurantCard resData={resObj[1]} />
+        <RestaurantCard resData={resObj[2]} />
+        <RestaurantCard resData={resObj[3]} /> */}
+      </div>
+    </div>
+  );
+};
+
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Body />
+    </div>
+  );
+};
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeadingComponent />); //here react will replace from html DOM with current h1 tag.
-
-// JXS prevent cross site scripting attacks. It sanitizes all html code.
-// React code is readable because of JXS.
+root.render(<AppLayout />);

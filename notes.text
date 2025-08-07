@@ -1,3 +1,4 @@
+CDN: ??
 1. NPM - its a package manager. it is biggest package manager.  standard repository for all the packages. All packages hosted over here.
         when you create basic react app it has automatically has npm in it.
         NPM (Node Package Manager) and Yarn are both package managers for JavaScript and Node.js projects. They serve the purpose of managing project dependencies, which are the external libraries and modules a project relies on.
@@ -35,5 +36,23 @@
             17. Differential bundling
             18. different dev and prod build
 
-Babel
-Cross site scripting
+Babel: ??
+Cross site scripting: ??
+
+1. planning - UI mock 
+
+
+
+react props = these are the properties which you pass to component. If you want to pass dynamic data to a component we can use props for that.
+react components are nothing but functions and props are nothing but arguments to the function.
+
+config driven UI - Website is driven by data configuration.
+eg. Zomato website - UI gets change according to data is different for mumbai, Pune, Delhi.
+
+all the images are hoisted on CDN
+
+Each child in a list should have a unique "key" prop.  whenever you are looping over anything add key property to it which will have unique key value.
+why we need keys??
+when we loop over HTML elements. React not recommend to use index as a key because order might change so you can not uniquely identify the element. key is used to 
+identify element uniquely so whenever any change occur it will not rerender all elements instance of that is only rerenders the current element. This improves performance of app.
+Not having key (not acceptable) << index as a key << unique key (from backend) (best practices)
