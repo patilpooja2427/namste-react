@@ -51,8 +51,57 @@ eg. Zomato website - UI gets change according to data is different for mumbai, P
 
 all the images are hoisted on CDN
 
+**
 Each child in a list should have a unique "key" prop.  whenever you are looping over anything add key property to it which will have unique key value.
 why we need keys??
 when we loop over HTML elements. React not recommend to use index as a key because order might change so you can not uniquely identify the element. key is used to 
 identify element uniquely so whenever any change occur it will not rerender all elements instance of that is only rerenders the current element. This improves performance of app.
 Not having key (not acceptable) << index as a key << unique key (from backend) (best practices)
+
+
+**
+-Default export
+export default <Component>
+import <Component> from '<path>';
+When any file has single export we can mark it as default export.
+while importing default export then no need of {} you can directly import it.
+
+-Named export
+export <Component>
+import {<Component>} from '<path>';
+when file has multiple exports then Named export is used. Name export means add export keyword only do not add default keyword.
+while importing Named export then inside {} you need to import it.
+
+**
+React is fast in Dom manipulation.
+React is good at dom manipulation hence rendering is fast.
+
+**
+React hooks- normal js functions, normal utility function - facebook developer written those.
+- useState()- use to create Superpower state variables in react. This make variable sync with UI.
+   **Whenever a state variable updates/changes react rerenders the component.
+        It keep sink data layer with UI layer.
+-useEffects()-
+
+-- Reconciliation algorithm(React Fiber):
+Reconciliation in React is the process by which React efficiently updates the User Interface (UI) in response to changes in a component's state or props. It is a core mechanism that allows React to provide a fast and smooth user experience by minimizing direct manipulation of the browser's Document Object Model (DOM), which is a costly operation.
+Here's how the reconciliation algorithm works:
+-- Virtual DOM Comparison (Diffing):
+Virtual Dom is nothing but that object representation which we saw in 1st lecture.
+React maintains a lightweight, in-memory representation of the UI called the Virtual DOM.
+When a component's state or props change, React creates a new Virtual DOM tree representing the updated UI.
+It then compares this new Virtual DOM tree with the previous one using a "diffing algorithm." This algorithm efficiently identifies the differences between the two trees.
+Determining Minimal Changes:
+The diffing algorithm follows specific heuristics to determine the most efficient way to update the actual DOM.
+Element Type: If the element types differ (e.g., a <div> becomes a <span>), React tears down the old component and its children and builds a new one.
+Attributes/Props: If the element types are the same but attributes or props have changed, React updates only those specific attributes on the existing DOM element.
+Lists and Keys: When dealing with lists of elements, React utilizes unique key props assigned to each list item. These keys help React identify which items have been added, removed, or reordered, allowing it to make targeted updates instead of re-rendering the entire list.
+Batching and Committing to the Real DOM:
+Once the diffing algorithm identifies all necessary changes, React batches these updates together.
+Instead of making individual updates to the real DOM for each change, React applies all the calculated changes in a single, optimized batch operation. This significantly reduces the number of layout calculations and repaints in the browser, leading to improved performance.
+In essence, reconciliation ensures that React only updates the necessary parts of the actual DOM, avoiding unnecessary re-renders and making your application feel more responsive.
+React Fibaer: ??
+
+
+
+
