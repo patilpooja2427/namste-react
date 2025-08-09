@@ -6,7 +6,8 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "test": "jest"
+    "test": "jest",
+    "json-server": "json-server --watch db.json --port 3001"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/patilpooja2427/namste-react#readme",
   "devDependencies": {
+    "json-server": "^1.0.0-beta.3",
     "parcel": "^2.15.4"
   },
   "dependencies": {

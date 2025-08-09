@@ -1,20 +1,20 @@
-import { useState } from "react";
+import { CDN_URL } from "../utils/constants";
 const RestaurantCard = (props) => {
+  
   const { resData } = props;
-  const { resName, cuisine, stars, delivery_time, constForTwo, image } = resData.data;
+  console.log(resData.name);
+  // const { name, cuisines, avgRatingString, sla, costForTwo, image } =
+  //   resData;
   return (
-    <div className="res-card" key={resName}>
+    <div className="res-card" key={resData.name}>
       <div className="res-logo-container">
-        <img
-          className="res-logo"
-          src={image}
-        ></img>
+        <img className="res-logo" src={CDN_URL + resData.cloudinaryImageId}></img>
       </div>
-      <h3>{resName}</h3>
-      <h4>{cuisine}</h4>
-      <h4>{stars} Stars</h4>
-      <h3>Time: {delivery_time}</h3>
-      <h3>Cost: {constForTwo / 2} Stars</h3>
+      <h3>{resData.name}</h3>
+      <h5>{[...resData.cuisines].join(', ')}</h5>
+      <h5>{resData.avgRatingString} Stars</h5>
+      <h5>Time: {resData.sla.deliveryTime}</h5>
+      <h5>Cost: {resData.costForTwo} Stars</h5>
     </div>
   );
 };

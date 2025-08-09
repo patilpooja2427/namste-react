@@ -103,5 +103,9 @@ In essence, reconciliation ensures that React only updates the necessary parts o
 React Fibaer: ??
 
 
+****
+2ways to load data
+
+website loads -> API - >
 
 
