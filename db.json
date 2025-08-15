@@ -244,5 +244,28 @@
         "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/gp1ityra6utvzqn6ghnv"
       }
     }
+  ],
+  "restaurant": [
+    {
+      "name": "KFC",
+      "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/gp1ityra6utvzqn6ghnv",
+      "delivery_time": "50 mins",
+      "constForTwo": "800",
+      "menu": ["Briyani", "Burgers", "Diet Food"]
+    },
+    {
+      "name": "MAcD",
+      "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/gp1ityra6utvzqn6ghnv",
+      "delivery_time": "50 mins",
+      "constForTwo": "800",
+      "menu": ["Briyani", "Burgers", "Diet Food"]
+    },
+    {
+      "name": "Pizza Hut",
+      "image": "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/gp1ityra6utvzqn6ghnv",
+      "delivery_time": "50 mins",
+      "constForTwo": "800",
+      "menu": ["Briyani", "Burgers", "Diet Food"]
+    }
   ]
 }
