@@ -1,13 +1,17 @@
-import { useState, useEffect } from "react";
-import RestaurantCard from "./RestaurantCard";
+import { useState, useEffect, useContext } from "react";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 // import resObj from "../utils/mockData";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filterRestaurantsList, setFilterRestaurantsList] = useState([]);
-
+  const onlineStatus = useOnlineStatus();
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+  const { loggedInUser, setUserName } = useContext(UserContext);
   useEffect(() => {
     fetchData();
   }, []);
@@ -24,6 +28,12 @@ const Body = () => {
     setFilterRestaurantsList(res);
   };
 
+  if (onlineStatus === false)
+    return (
+      <h1>
+        Looks like you are offline!! Please check your internet connection.
+      </h1>
+    );
   //conditional rendering
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -60,12 +70,24 @@ const Body = () => {
         >
           Top rated Restaurant
         </button>
+        <div>
+          <label>User Name: </label>
+          <input
+            type="text"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
       </div>
       <div className="res-container">
         {filterRestaurantsList.map((data, index) => {
           return (
             <Link key={data.info.id} to={"/restaurant/" + index}>
-              <RestaurantCard resData={data.info} />
+              {data.info.avgRating > 4.5 ? (
+                <RestaurantCardPromoted resData={data.info} />
+              ) : (
+                <RestaurantCard resData={data.info} />
+              )}
             </Link>
           );
         })}
